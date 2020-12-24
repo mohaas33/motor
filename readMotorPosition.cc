@@ -52,7 +52,7 @@ int main( int argc, char *argv[])
 
   tn->Connect();
   tn->print(axis);
-  char string[128];
+  char string[12];
   int i;
   int status;
 
@@ -66,9 +66,23 @@ int main( int argc, char *argv[])
     }
   //  if (status) return 1;
 
-  string[i] = 0;
-  int val = atoi (string);
+//  string[i] = 0;
+  char ss[11];
+  i=0;
+  for(i=0;i<12;i++){
+    if(string[i]=='+' || string[i]=='-'){
+      ss[0]=string[i];
+      break;
+    }    
+  }
+  int ii=1;
+  for(int newi=i+1; newi<12; newi++){
+    ss[ii] = string[newi];
+    ii++;
+  }
+  int val = atoi (ss);
   cout << val << endl;
+
   return 0;
 
 }
