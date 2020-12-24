@@ -2,6 +2,6 @@
 
 [ -z "$SERIALLINE" ] && export SERIALLINE=/dev/ttyUSB0
 
-echo "C,I1M0,R" > $SERIALLINE
+echo "C,I2M0,R" > $SERIALLINE
 
 
