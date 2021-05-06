@@ -52,13 +52,13 @@ int main( int argc, char *argv[])
 
   tn->Connect();
   tn->print(axis);
-  char string[12];
+  char astring[12];
   int i;
   int status;
 
   for ( i = 0; i < 12; i++)
     {
-      if ( ( status = tn->readChar(&string[i], 10) < 0) )
+      if ( ( status = tn->readChar(&astring[i], 10) < 0) )
 	{
 	  //	  cout << "timeout at char " << i << endl;
 	  continue;
@@ -66,22 +66,20 @@ int main( int argc, char *argv[])
     }
   //  if (status) return 1;
 
-//  string[i] = 0;
   char ss[11];
-  i=0;
-  for(i=0;i<12;i++){
-    if(string[i]=='+' || string[i]=='-'){
-      ss[0]=string[i];
+  i = 0;
+  for(i=0; i<12; ++i){
+    if(astring[i]=='+' or astring[i]=='-') {
+      ss[0] = astring[i];
       break;
-    }    
+    }
   }
   int ii=1;
-  for(int newi=i+1; newi<12; newi++){
-    ss[ii] = string[newi];
+  for(int newi = i+1; newi<12; newi++){
+    ss[ii] = astring[newi];
     ii++;
   }
-  int val = atoi (ss);
-  cout << val << endl;
+  cout<< atoi(ss) << endl;
 
   return 0;
 
