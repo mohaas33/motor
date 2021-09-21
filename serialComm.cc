@@ -48,7 +48,7 @@ int serialComm::Disconnect()
 {
   close(fd);
   connected = 0;
-
+  return 0; 
 }
 
 
