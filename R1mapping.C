@@ -16,15 +16,15 @@ int main() {
     j++;
   }
 
-  double dX = 7;
-  double dY = 4;
+  double dX = 7.0;
+  double dY = 4.0;
   double inch_to_mm = 0.19685;
   double phi = 0.52;
   double deltaphi[arr_s];
   int numpoints=0;
 
   for(int k = 0; k < arr_s; k++){ 
-    deltaphi[k] = 0.2/rmid[k];
+    deltaphi[k] = 20.0*0.2/rmid[k];
     numpoints = numpoints + round(phi/deltaphi[k]);
   }
   
