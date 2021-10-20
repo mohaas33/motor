@@ -24,8 +24,6 @@ int main() {
     deltaphi[k] = 0.2/rmid[k];
     numpoints = numpoints + round(phi/deltaphi[k]);
   }
-
-  cout << numpoints << endl;
   
   double xpoints[numpoints];
   double ypoints[numpoints];
@@ -36,8 +34,8 @@ int main() {
   for(int w = 0; w < arr_s; w++){
       
     for(p; p <= p_max; p++){
-      xpoints[p] = 1000*(rmid[w]/0.19685)*cos(tot_angle);
-      ypoints[p] = 1000*(rmid[w]/0.19685)*sin(tot_angle);
+      xpoints[p] = 1000*((rmid[w]*cos(tot_angle))-7)/0.19685;
+      ypoints[p] = 1000*((rmid[w]*sin(tot_angle))-4)/0.19685;
       tot_angle = tot_angle + deltaphi[w];
     }
     
