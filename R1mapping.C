@@ -39,9 +39,9 @@ int main() {
     if(w % 2 == 0){
       tot_angle = -phi/2.0;
       for(p; p <= p_max; p++){
-	xpoints[p] = 1000*((rmid[w]*cos(tot_angle))-dX)/inch_to_mm;
-	ypoints[p] = 1000*((rmid[w]*sin(tot_angle))-dY)/inch_to_mm;
-	tot_angle = tot_angle + deltaphi[w];
+	      xpoints[p] = 1000*((rmid[w]*cos(tot_angle))-dX)/inch_to_mm;
+	      ypoints[p] = 1000*((rmid[w]*sin(tot_angle))-dY)/inch_to_mm;
+	      tot_angle = tot_angle + deltaphi[w];
       }
     }
   
