@@ -16,6 +16,7 @@ File `./config/R1_points.txt` will be created.
 
 `./R1_Module_run.sh PadPlane00_R1`
 It loops over X,Y positions in the `./config/R1_points.txt` and creates txt files for each X,Y position.
+
 Example of the output:
 
 X 13012 Y 13849
