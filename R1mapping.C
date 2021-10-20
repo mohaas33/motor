@@ -24,7 +24,7 @@ int main() {
   int numpoints=0;
 
   for(int k = 0; k < arr_s; k++){ 
-    deltaphi[k] = 10.0*0.2/rmid[k];
+    deltaphi[k] = 0.2/rmid[k];
     numpoints = numpoints + round(phi/deltaphi[k]);
   }
   
@@ -35,15 +35,24 @@ int main() {
   int p_max=round(phi/deltaphi[0]);
   
   for(int w = 0; w < arr_s; w++){
-      
-    for(p; p <= p_max; p++){
-      xpoints[p] = 1000*((rmid[w]*cos(tot_angle))-dX)/inch_to_mm;
-      ypoints[p] = 1000*((rmid[w]*sin(tot_angle))-dY)/inch_to_mm;
-      tot_angle = tot_angle + deltaphi[w];
+
+    if(w % 2 == 0){
+      tot_angle = -phi/2.0;
+      for(p; p <= p_max; p++){
+	xpoints[p] = 1000*((rmid[w]*cos(tot_angle))-dX)/inch_to_mm;
+	ypoints[p] = 1000*((rmid[w]*sin(tot_angle))-dY)/inch_to_mm;
+	tot_angle = tot_angle + deltaphi[w];
+      }
+    }
+  
+     else{
+       tot_angle = phi/2.0;
+       for(p; p <= p_max; p++){  
+       	xpoints[p] = 1000*((rmid[w]*cos(tot_angle))-dX)/inch_to_mm;                                                                                                  ypoints[p] = 1000*((rmid[w]*sin(tot_angle))-dY)/inch_to_mm;                                                                                                  tot_angle = tot_angle - deltaphi[w];
+      }
     }
     
     p_max = p_max + round(phi/deltaphi[w+1]);
-    tot_angle = -phi/2.0;
   }
 
   ofstream myfile;
