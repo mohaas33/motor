@@ -36,8 +36,8 @@ int main() {
   for(int w = 0; w < arr_s; w++){
       
     for(p; p <= p_max; p++){
-      xpoints[p] = rmid[w]*cos(tot_angle);
-      ypoints[p] = rmid[w]*sin(tot_angle);
+      xpoints[p] = 1000*(rmid[w]/0.19685)*cos(tot_angle);
+      ypoints[p] = 1000*(rmid[w]/0.19685)*sin(tot_angle);
       tot_angle = tot_angle + deltaphi[w];
     }
     
@@ -48,7 +48,7 @@ int main() {
   ofstream myfile;
    myfile.open("R1_points.txt");
   for(int z = 0; z < numpoints; z++){
-    myfile << xpoints[z] << " " << ypoints[z] << ".\n";
+    myfile << round(xpoints[z]) << " " << round(ypoints[z]) << ".\n";
   }
 
   myfile.close();
