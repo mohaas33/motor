@@ -1,8 +1,16 @@
-## Calculate the X,Y steps
+### **Calculate the X,Y steps**
 
+Compile:
 
+`g++ R1mapping.C -o R1mapping`
 
-### Running test
+Run:
+
+`./R1mapping`
+
+File `./config/R1_points.txt` will be created.
+
+### **Running test**
 
 - For R1 frames:
 
