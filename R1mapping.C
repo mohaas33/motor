@@ -24,7 +24,7 @@ int main() {
   int numpoints=0;
 
   for(int k = 0; k < arr_s; k++){ 
-    deltaphi[k] = 20.0*0.2/rmid[k];
+    deltaphi[k] = 10.0*0.2/rmid[k];
     numpoints = numpoints + round(phi/deltaphi[k]);
   }
   
@@ -49,7 +49,7 @@ int main() {
   ofstream myfile;
    myfile.open("./config/R1_points.txt",std::ofstream::trunc);
   for(int z = 0; z < numpoints; z++){
-    myfile << round(xpoints[z]) << " " << round(-ypoints[z]) << ".\n";
+    myfile << round(xpoints[z]) << " " << round(-ypoints[z]) << "\n";
   }
 
   myfile.close();

@@ -27,6 +27,7 @@ lines=$(wc -l < "$filename")
 while IFS=' ' read -r i j
 do
     echo "processing step $steps of $lines ..."
+    echo "X=$i"
     quickmove.sh $i 2
     if [ "$steps" -eq 0 ];
     then
@@ -37,17 +38,18 @@ do
         sleep $t_short
     fi
 
+    echo "X=$j"
     quickmove.sh $j 1
     if [ "$steps" -eq 0 ];
     then
-        sleep t_long
+        sleep $t_long
     fi
     if [ "$steps" -gt 0 ];
     then
-        sleep t_short
+        sleep $t_short
     fi
 
-    steps+=1
+    steps=$((steps+1))
 
 done < $filename
 
