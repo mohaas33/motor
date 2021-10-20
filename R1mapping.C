@@ -16,6 +16,9 @@ int main() {
     j++;
   }
 
+  double dX = 7;
+  double dY = 4;
+  double inch_to_mm = 0.19685;
   double phi = 0.52;
   double deltaphi[arr_s];
   int numpoints=0;
@@ -34,8 +37,8 @@ int main() {
   for(int w = 0; w < arr_s; w++){
       
     for(p; p <= p_max; p++){
-      xpoints[p] = 1000*((rmid[w]*cos(tot_angle))-7)/0.19685;
-      ypoints[p] = 1000*((rmid[w]*sin(tot_angle))-4)/0.19685;
+      xpoints[p] = 1000*((rmid[w]*cos(tot_angle))-dX)/inch_to_mm;
+      ypoints[p] = 1000*((rmid[w]*sin(tot_angle))-dY)/inch_to_mm;
       tot_angle = tot_angle + deltaphi[w];
     }
     
@@ -44,9 +47,9 @@ int main() {
   }
 
   ofstream myfile;
-   myfile.open("R1_points.txt");
+   myfile.open("./config/R1_points.txt",std::ofstream::trunc);
   for(int z = 0; z < numpoints; z++){
-    myfile << round(xpoints[z]) << " " << round(ypoints[z]) << ".\n";
+    myfile << round(xpoints[z]) << " " << round(-ypoints[z]) << ".\n";
   }
 
   myfile.close();

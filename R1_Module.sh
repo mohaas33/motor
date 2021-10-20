@@ -1,19 +1,54 @@
 #!/bin/bash
 
 #initialize file
-filename='R1_points.txt'
+filename='./config/R1_points.txt'
 
 #initialize motor
-#motorinit
-#sleep 1
 
+echo "move to X = 0 position"
+# move to X = 0 position
+goto_NegativeLimit_motor2.sh
+# wait until it gets there
+sleep 150
+echo "move to Y = 0 position"
+# move to Y = 0 position
+goto_NegativeLimit_motor1.sh
+# wait until it gets there
+sleep 150
+
+motorinit
+sleep 3
+
+t_long=60
+t_short=30
+steps=0
+lines=$(wc -l < "$filename")
 #Move motor 1 and motor 2 to each x and y location 
 while IFS=' ' read -r i j
 do
+    echo "processing step $steps of $lines ..."
     quickmove.sh $i 2
-    sleep 3
+    if [ "$steps" -eq 0 ];
+    then
+        sleep $t_long
+    fi
+    if [ "$steps" -gt 0 ];
+    then
+        sleep $t_short
+    fi
+
     quickmove.sh $j 1
-    sleep 3
+    if [ "$steps" -eq 0 ];
+    then
+        sleep t_long
+    fi
+    if [ "$steps" -gt 0 ];
+    then
+        sleep t_short
+    fi
+
+    steps+=1
+
 done < $filename
 
 exit
