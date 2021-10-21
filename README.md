@@ -15,7 +15,7 @@ File `./config/R1_points.txt` will be created.
 - For R1 frames:
 
 `./R1_Module_run.sh PadPlane00_R1`
-It loops over X,Y positions in the `./config/R1_points.txt` and creates txt files for each X,Y position.
+It loops over X,Y positions in the `./config/R1_points.txt` and creates txt files for each X,Y position in the `/home/tpc/Products/logFiles/PadPlane00_R1/`.
 
 Example of the output:
 
